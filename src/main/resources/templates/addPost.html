@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <div th:replace="base :: metaTags"></div>
+
+    <div th:replace="base :: BootStrapAndMainCSSLinks"></div>
+    <title>Add Post</title>
+</head>
+<body>
+
+    <div th:replace="base :: navbar"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2> </h2>
+                <form th:action="@{/processPost}" th:object="${post}" method="post">
+                    <input type="text" thLfield="*{postId}" hidden>
+                    Guest Name: <input type="text" th:field="*{userName}" width="100%"> <br><br>
+                    Date: <input type="text" th:field="*{postDate}"> <br><br>
+                    Wish: <input type="text" th:field="*{wish}" width="50%"> <br><br>
+
+                    <br><br>
+
+                    <button type="submit" class="btn btn-secondary">[[${submit}]]</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer style="text-align: center; margin-top: 50px;">&copy; Copyright 2020 Nahom T. </footer>
+
+
+    <div th:replace="base :: BootStrapScripts"></div>
+</body>
+</html>

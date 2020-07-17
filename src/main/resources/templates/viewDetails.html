@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <div th:replace="base :: metaTags"></div>
+
+    <div th:replace="base :: BootStrapAndMainCSSLinks"></div>
+    <title>Post Details</title>
+
+</head>
+<body>
+
+<div th:replace="base :: navbar"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2> Post Details: </h2>
+            Posted by: [[${post.userName}]] <br>
+            Posted Date: [[${post.postDate}]] <br>
+            Wish: [[${post.wish}]] <br>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/add}" >
+                <button type="button" class="btn btn-secondary addPostBtn">Add Your Wish!</button>
+            </a>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<footer style="text-align: center; margin-top: 50px;">&copy; Copyright 2020 Nahom T. </footer>
+
+
+<div th:replace="base :: BootStrapScripts"></div>
+</body>
+</html>

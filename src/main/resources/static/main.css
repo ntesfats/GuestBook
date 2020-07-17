@@ -1,0 +1,17 @@
+
+#mainPageTitle {
+    text-align: center;
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.post {
+    box-shadow: 0 0 5px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.addPostBtn {
+    margin-top: 50px;
+}

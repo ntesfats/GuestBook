@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <div th:replace="base :: metaTags"></div>
+
+    <div th:replace="base :: BootStrapAndMainCSSLinks"></div>
+    <title>Add Task</title>
+</head>
+<body>
+
+    <div th:replace="base :: navbar"></div>
+
+    <h3 id="mainPageTitle"> Welcome to Taylor and Oscar's Wedding Guest Book!</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4> Look all of our Wishes: </h4>
+                <hr>
+
+                <div class="row align-items-center rowPost post" th:each="postHash : ${allPosts}">
+                    <div class="col" >
+                        [[${postHash.value.userName}]]
+                        <p class="postDate">[[${postHash.value.postDate}]]</p>
+                        [[${postHash.value.wish}]]
+                        <hr>
+                    </div>
+                    <div clas="col-4">
+<!--                        <button><a th:href="@{/update/{id} (id = ${employee.id})}">Update</a></button>-->
+
+                        <a th:href="@{/viewDetails/{id} (id = ${postHash.key})}">
+                            <button type="button" class="btn btn-info">View Details</button>
+                        </a>
+                        <a th:href="@{/update/{id} (id = ${postHash.key})}">
+                            <button type="button" class="btn btn-warning">Update</button>
+                        </a>
+                        <a th:href="@{/remove/{id} (id = ${postHash.key})}">
+                            <button type="button" class="btn btn-danger">Remove</button>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p th:if="${allPosts.size() == 0}">
+                    No Wishes at this moments
+                    <hr>
+                </p>
+
+                <br><br>
+                <a th:href="@{/add}" class="addPostBtn">
+                    <button type="button" class="btn btn-secondary">Add Your Wish!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div th:replace="base :: footer"></div>
+
+    <div th:replace="base :: BootStrapScripts"></div>
+
+
+
+</body>
+</html>
